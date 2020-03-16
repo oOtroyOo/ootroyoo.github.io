@@ -1,12 +1,19 @@
-<html>
-  <head>
-    <script language="javascript" type="text/javascript"> 
- var tmpTag = 'https:' == document.location.protocol ? false : true;
-        if(tmpTag){
-        var urls=window.location.href;
-        urls = urls.replace("http", "https");
-        window.location=urls;}
-      window.location.href='/blog-mdui';
-    </script>
-  </head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>简单的大佬</title>
+  <script language="javascript" type="text/javascript">
+    if ('https:' != document.location.protocol) {
+      var urls = window.location.href;
+      urls = urls.replace("http", "https");
+      window.location = urls;
+    }
+    else {
+      window.location.href = window.location.href + 'blog-mdui/';
+    };
+  </script>
+
+</head>
+
 </html>

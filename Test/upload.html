@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传测试</title>
+    <script>
+
+        function uploadFileToServer() {
+            var uploadFile = document.getElementById("upload_file_id");
+
+            var xhr = new XMLHttpRequest();
+            xhr.withCredentials = true;
+
+            xhr.addEventListener("readystatechange", function () {
+                if (this.readyState === 4) {
+                    console.log(this.responseText);
+                }
+            });
+
+            xhr.open("PUT", "http://api.troy-web.top/uploadkey");
+            xhr.setRequestHeader("content-type", "video/mp4");
+            xhr.setRequestHeader("filename", uploadFile.files[0].name);
+            xhr.setRequestHeader("cache-control", "no-cache");
+            xhr.setRequestHeader("postman-token", "a28b7d38-dc58-7610-1c57-223c64169f2b");
+            xhr.onload = e => {
+                console.log('request success');
+            };
+// 请求结束
+            xhr.onloadend = e => {
+                console.log('request loadend');
+            };
+            xhr.send(uploadFile.files[0]);
+            //xhr.send(uploadFile.files[0]);
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="file" id="upload_file_id" />
+    <button onclick="uploadFileToServer()">上传新文件</button>
+
+</body>
+</html>
